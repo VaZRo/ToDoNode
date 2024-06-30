@@ -24,6 +24,11 @@ body{
     color: #bdbdbd;
 }
 
+
+.input-field[type="text"]{
+    color: #bdbdbd;
+}
+
 .btn-save{
     background-color: #4f6bba;
     color: white;
@@ -32,6 +37,23 @@ body{
     width: 70px;
         /* justify-content: center;
         align-items: center; */
+}
+
+.buttons{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.btn-delete{
+    background-color: red; /* need to change later */
+    color: white;
+    height: 33px;
+}
+
+.btn-change{
+    background-color: green;
+    color: white;
+    height: 33px;
 }
 
 .add-form{
