@@ -4,6 +4,7 @@ const path = require('path');
 const fs = require('fs');
 const bodyParser = require('body-parser');
 const { type } = require('os');
+const { Console } = require('console');
 
 const app = express();
 const PORT = 3000;
@@ -51,8 +52,14 @@ app.post('/add-task', (req, res) => {
             tasks = JSON.parse(data);
         }
 
-        if(tasks.length != 0){
-            lastId = tasks[tasks.length - 1].id;
+
+        if(tasks.length > 0){
+
+            tasks.forEach(task => {
+                if(task.id > lastId){
+                    lastId = task.id;
+                }
+            });
         }
         newTask.id = ++lastId;
         tasks.push(newTask);
@@ -68,6 +75,62 @@ app.post('/add-task', (req, res) => {
         });
     });
 });
+
+app.get('/delete/:id', (req, res) => {
+    const itemId = req.params.id;
+    fs.readFile(tasksFilePath, 'utf-8', (err, data) => {
+        if (err) {
+            console.error('Error reading file:', err);
+            return res.status(500).send('Server Error');
+        }
+
+        let tasks = [];
+        if(data){
+            tasks = JSON.parse(data);
+        }
+
+        tasks = tasks.filter(task => task.id != itemId);
+        console.log(tasks);
+
+        fs.writeFile(tasksFilePath, JSON.stringify(tasks), 'utf-8', (err) => {
+            if (err) {
+                console.error('Error writing file:', err);
+                return res.status(500).send('Server Error');
+            }
+            res.redirect('/');
+        })
+    })
+})
+
+app.get('/changeStatus/:id', (req, res) => {
+    const itemId = req.params.id
+
+    fs.readFile(tasksFilePath, 'utf-8', (err, data) => {
+        if(err){
+            console.error('Error reading file: ', err);
+            return res.status(500).send('Server Error');
+        }
+
+        let tasks = [];
+        if(data){
+            tasks = JSON.parse(data);
+        }
+
+        tasks.forEach(task => {
+            if(task.id == itemId){
+                task.status = "Done";
+            }
+        });
+
+        fs.writeFile(tasksFilePath, JSON.stringify(tasks), 'utf-8', (err) => {
+            if(err){
+                console.error('Error reading file: ', err);
+                return res.status(500).send('Server error');
+            }
+            res.redirect('/');
+        })
+    })
+})
 
 app.listen(PORT, () => {
     console.log(`Server started at http://localhost:${PORT}`);
