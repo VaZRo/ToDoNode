@@ -5,10 +5,17 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const taskRoutes = require('./routes/taskRoutes');
 const userRoutes = require('./routes/userRoutes');
+const session = require('express-session');
 
 const app = express();
 const PORT = 3000;
 const db = 'mongodb+srv://tair:123@cluster0.ujpwbzm.mongodb.net/ToDoList?retryWrites=true&w=majority&appName=Cluster0';
+
+app.use(session({
+    secret: 'mySecretKey',
+    resave: false,
+    saveUninitialized: true,
+}));
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));

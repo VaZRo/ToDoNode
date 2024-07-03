@@ -88,6 +88,7 @@ body{
 .btn-enter{
     background-color: $default-btn-color;
     color: white;
+    width: 100px;
 }
 
 .btn{
@@ -107,4 +108,9 @@ body{
     border-color: $default-btn-color !important;
     box-shadow: none !important;
     border: 1px solid $secondary-text-color;
+}
+
+#error-message{
+    color: $danger-btn-color;
+    display: none;
 }

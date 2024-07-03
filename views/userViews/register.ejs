@@ -20,10 +20,11 @@
 							<h3 class="col-4 text-lg-center">To Do App</h3>
 						</div>
 						<div class="row d-flex justify-content-center flex-grow-1 overflow-auto scrollbar" style="max-height: 400px;">
-							<form class="col-6" method="post" action="/register" onsubmit="return validatePasswords()">
+							<form id="registrationForm" class="col-6">
 								<div class="mb-3">
 									<label for="login" class="form-label">Login: </label>
 									<input type="text" class="form-control" name="login" required>
+									<p id="error-message"></p>
 								</div>
 								<div class="mb-3">
 									<label for="password" class="form-label">Password: </label>
@@ -34,8 +35,9 @@
 									<label for="repeated-password" class="form-label">Repeat Password: </label>
 									<input type="password" class="form-control text-white" name="repeated-password" id="repeated-password" required>
 								</div>
-								<div class="col-3 mx-auto">
-									<button type="submit" class="btn btn-enter mx-auto">Register</button>
+								<div class="col-12 d-flex justify-content-evenly">
+									<button type="submit" class="btn btn-enter">Register</button>
+									<a class="btn btn-enter" href="/users/login">Login</a>
 								</div>
 							</form>
 						</div>

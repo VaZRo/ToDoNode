@@ -20,18 +20,19 @@
 							<h3 class="col-4 text-lg-center">To Do App</h3>
 						</div>
 						<div class="row d-flex justify-content-center flex-grow-1 overflow-auto scrollbar" style="max-height: 400px;">
-							<form class="col-6" method="post" action="/login">
+							<form id="loginForm" class="col-6" method="post">
 								<div class="mb-3 mt-3">
 									<label for="login" class="form-label">Login: </label>
 									<input type="text" class="form-control" name="login" required>
+									<p id="error-message"></p>
 								</div>
 								<div class="mb-3 mt-5">
 									<label for="password" class="form-label">Password: </label>
 									<input type="password" class="form-control text-white" name="password" id="password" aria-describedby="passwordHelp" required>
-									<div id="passwordHelp" class="form-text text-white">Password must have length 6 symbols, 1 capital letter, 1 symbol and 1 number</div>
 								</div>
-								<div class="col-3 mx-auto">
+								<div class="col-12 d-flex justify-content-evenly">
 									<button type="submit" class="btn btn-enter mx-auto">Login</button>
+									<a class="btn btn-enter mx-auto" href="/users/register">Register</a>
 								</div>
 							</form>
 						</div>
@@ -41,7 +42,7 @@
     	</div>
   	</div>
 
-	<script src="/script.js"></script>
+	<script src="/loginFetch.js"></script>
   	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
