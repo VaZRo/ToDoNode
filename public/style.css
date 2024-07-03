@@ -1,0 +1,77 @@
+body{
+    background-color: rgb(236, 236, 236);
+}
+
+.custom-row-height {
+    min-height: 600px;
+}
+
+.main-box{
+    background-color: #424242;
+    color: white;
+    border-radius: 15px;
+}
+
+.input-field{
+    background-color: #424242;
+    border-radius: 4px;
+    height: 33px;
+    border: 1px solid #bdbdbd;
+    margin-right: 10px;
+}
+
+.input-field::placeholder{
+    color: #bdbdbd;
+}
+
+
+.input-field[type="text"]{
+    color: #bdbdbd;
+}
+
+.btn-save{
+    background-color: #4f6bba;
+    color: white;
+    height: 33px;
+    margin-left: 10px;
+    width: 70px;
+        /* justify-content: center;
+        align-items: center; */
+}
+
+.buttons{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.btn-delete{
+    background-color: red; /* need to change later */
+    color: white;
+    height: 33px;
+}
+
+.btn-change{
+    background-color: green;
+    color: white;
+    height: 33px;
+}
+
+.add-form{
+    margin: 30px 0px;   
+}
+
+.todo-table{
+    background-color: #303030;
+    border-collapse: collapse;
+    color: white;
+    border-bottom: #424242;
+}
+
+.todo-table thead th{
+    border-bottom-color: #424242 !important;
+}
+
+.scrollbar{
+    scrollbar-width: thin;
+    scrollbar-color: #bdbdbd #424242;
+}
