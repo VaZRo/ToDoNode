@@ -3,7 +3,8 @@ const taskController = require('../controllers/taskController');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.send("Hello world this is tasks page");
+    var tasks = [];
+    res.render('taskViews/index', {tasks: tasks});
 })
 
 module.exports = router;

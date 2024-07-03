@@ -1,0 +1,110 @@
+$background-color: #eeeeee;
+$main-bg-color: #424242;
+$table-color: #303030;
+$secondary-text-color: #bdbdbd;
+$default-btn-color: #4f6bba;
+$danger-btn-color: #af4d5c;
+$safe-btn-color: #539953;
+
+body{
+    background-color: $background-color;
+}
+
+.custom-row-height {
+    min-height: 600px;
+}
+
+.main-box{
+    background-color: $main-bg-color;
+    color: white;
+    border-radius: 15px;
+}
+
+.input-field{
+    background-color: $main-bg-color;
+    border-radius: 4px;
+    height: 33px !important;
+    width: 180px !important;
+    border: 1px solid $secondary-text-color;
+    margin-right: 10px;
+}
+
+.input-field::placeholder{
+    color: $secondary-text-color !important;
+}
+
+
+.form-control[type="text"]{
+    color: white;
+}
+
+.btn-save{
+    background-color: $default-btn-color;
+    color: white;
+    height: 33px;
+    margin-left: 10px;
+    width: 70px;
+        /* justify-content: center;
+        align-items: center; */
+}
+
+.buttons{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.btn-delete{
+    background-color: $danger-btn-color; /* need to change later */
+    color: white;
+    height: 33px;
+}
+
+.btn-change{
+    background-color: $safe-btn-color;
+    color: white;
+    height: 33px;
+}
+
+.add-form{
+    margin: 30px 0px;   
+}
+
+.todo-table{
+    background-color: $table-color;
+    border-collapse: collapse;
+    color: white;
+    border-bottom: $table-color;
+}
+
+.todo-table thead th{
+    border-bottom-color: $main-bg-color !important;
+}
+
+.scrollbar{
+    scrollbar-width: thin;
+    scrollbar-color: $secondary-text-color $main-bg-color;
+}
+
+.btn-enter{
+    background-color: $default-btn-color;
+    color: white;
+}
+
+.btn{
+    transition: box-shadow 0.3s ease !important;
+}
+
+.btn:hover{
+    color: white !important;
+    box-shadow: 0 0 15px black !important;
+}
+
+.form-control{
+    background-color: $main-bg-color !important;
+}
+
+.form-control:focus{
+    border-color: $default-btn-color !important;
+    box-shadow: none !important;
+    border: 1px solid $secondary-text-color;
+}

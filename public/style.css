@@ -1,77 +1,102 @@
-body{
-    background-color: rgb(236, 236, 236);
+body {
+  background-color: #eeeeee;
 }
 
 .custom-row-height {
-    min-height: 600px;
+  min-height: 600px;
 }
 
-.main-box{
-    background-color: #424242;
-    color: white;
-    border-radius: 15px;
+.main-box {
+  background-color: #424242;
+  color: white;
+  border-radius: 15px;
 }
 
-.input-field{
-    background-color: #424242;
-    border-radius: 4px;
-    height: 33px;
-    border: 1px solid #bdbdbd;
-    margin-right: 10px;
+.input-field {
+  background-color: #424242;
+  border-radius: 4px;
+  height: 33px !important;
+  width: 180px !important;
+  border: 1px solid #bdbdbd;
+  margin-right: 10px;
 }
 
-.input-field::placeholder{
-    color: #bdbdbd;
+.input-field::placeholder {
+  color: #bdbdbd !important;
 }
 
-
-.input-field[type="text"]{
-    color: #bdbdbd;
+.form-control[type=text] {
+  color: white;
 }
 
-.btn-save{
-    background-color: #4f6bba;
-    color: white;
-    height: 33px;
-    margin-left: 10px;
-    width: 70px;
-        /* justify-content: center;
-        align-items: center; */
+.btn-save {
+  background-color: #4f6bba;
+  color: white;
+  height: 33px;
+  margin-left: 10px;
+  width: 70px;
+  /* justify-content: center;
+  align-items: center; */
 }
 
-.buttons{
-    padding-left: 0px !important;
-    padding-right: 0px !important;
+.buttons {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }
 
-.btn-delete{
-    background-color: red; /* need to change later */
-    color: white;
-    height: 33px;
+.btn-delete {
+  background-color: #af4d5c;
+  /* need to change later */
+  color: white;
+  height: 33px;
 }
 
-.btn-change{
-    background-color: green;
-    color: white;
-    height: 33px;
+.btn-change {
+  background-color: #539953;
+  color: white;
+  height: 33px;
 }
 
-.add-form{
-    margin: 30px 0px;   
+.add-form {
+  margin: 30px 0px;
 }
 
-.todo-table{
-    background-color: #303030;
-    border-collapse: collapse;
-    color: white;
-    border-bottom: #424242;
+.todo-table {
+  background-color: #303030;
+  border-collapse: collapse;
+  color: white;
+  border-bottom: #303030;
 }
 
-.todo-table thead th{
-    border-bottom-color: #424242 !important;
+.todo-table thead th {
+  border-bottom-color: #424242 !important;
 }
 
-.scrollbar{
-    scrollbar-width: thin;
-    scrollbar-color: #bdbdbd #424242;
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #bdbdbd #424242;
+}
+
+.btn-enter {
+  background-color: #4f6bba;
+  color: white;
+}
+
+.btn {
+  transition: box-shadow 0.3s ease !important;
+}
+
+.btn:hover {
+  color: white !important;
+  box-shadow: 0 0 15px black !important;
+}
+
+.form-control {
+  background-color: #424242 !important;
+}
+
+.form-control:focus {
+  border-color: #4f6bba !important;
+  box-shadow: none !important;
+  border: 1px solid #bdbdbd;
 }
