@@ -1,14 +1,25 @@
 const Task = require('../models/Task');
 const User = require('../models/User');
+const moment = require('moment');
 
 exports.index = async(req, res) => {
     if(!req.session.userId){
         return res.redirect('/users/login');
     }
     try{
+        const currentDateTime = moment().format('DD-MM-YYYY HH:mm:ss');
         var tasks = [];
-        tasks = await Task.find({ user: req.session.userId });
-        return res.render('taskViews/index', {tasks: tasks});
+        if(req.query.title){
+            tasks = await Task.find({
+                user: req.session.userId,
+                title: { $regex: new RegExp(req.query.title, 'i')},
+            })
+        }
+        else{
+            tasks = await Task.find({ user: req.session.userId });
+        }
+
+        return res.render('taskViews/index', {tasks: tasks, currentDateTime: currentDateTime});
     } catch(error){
         console.error('Error fetching tasks: ', error);
         return res.status(500).send('Internal Server Error');

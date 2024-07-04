@@ -18,9 +18,8 @@
             			<div class="row d-flex justify-content-center mt-4">	
 							<h3 class="col-4 text-lg-center">To Do App</h3>
 						</div>
-						<form method="post" action="/add-task" enctype="application/x-www-form-urlencoded" class="row d-flex justify-content-center add-form">
-							<input type="text" name="task" placeholder="Enter a task here" class="form-control input-field" required/>
-							<input type="hidden" name="status" value="In Progress">
+						<form method="get" action="/tasks/" enctype="application/x-www-form-urlencoded" class="row d-flex justify-content-center add-form">
+							<input type="text" name="title" placeholder="Enter a title here" class="form-control input-field"/>
 							<button type="submit" class="col-1 btn btn-save d-flex align-items-center justify-content-center">Search</button>
 						</form>
 						<div class="row d-flex justify-content-center flex-grow-1 overflow-auto scrollbar" style="max-height: 300px;">
@@ -83,6 +82,7 @@
 								</div>
 							</div>
 						</div>
+						<p><%= currentDateTime %></p>
 						<div class="row d-flex justify-content-center align-items-center bottom-btns">
 							<div class="col-3 d-flex justify-content-center">
 								<a class="btn btn-default" href="/tasks/addTask">Add Task</a>
