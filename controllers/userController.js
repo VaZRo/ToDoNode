@@ -3,10 +3,16 @@ const bcrypt = require('bcrypt');
 const saltRound = 10;
 
 exports.register = async(req, res) => {
+    if(req.session.userId){
+        return res.redirect('/tasks/');
+    }
     return res.render('userViews/register');
 }
 
 exports.registerPOST = async(req, res) => {
+    if(req.session.userId){
+        return res.redirect('/tasks/');
+    }
     const { login, password } = req.body;
 
     try{
@@ -25,10 +31,16 @@ exports.registerPOST = async(req, res) => {
 }
 
 exports.login = async(req, res) => {
+    if(req.session.userId){
+        return res.redirect('/tasks/');
+    }
     return res.render('userViews/login');
 }
 
 exports.loginPOST = async(req, res) => {
+    if(req.session.userId){
+        return res.redirect('/tasks/');
+    }
     const { login, password } = req.body;
 
     try{
@@ -51,6 +63,9 @@ exports.loginPOST = async(req, res) => {
 }
 
 exports.logout = (req, res) => {
+    if(!req.session.userId){
+        res.redirect('/users/login');   
+    }
     req.session.destroy(err => {
         if(err) return res.status(500).send("Logout Error");
     })

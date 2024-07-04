@@ -46,7 +46,6 @@ body {
 
 .btn-delete {
   background-color: #af4d5c;
-  /* need to change later */
   color: white;
   height: 33px;
 }
@@ -83,6 +82,11 @@ body {
   width: 100px;
 }
 
+.btn-default {
+  background-color: #4f6bba;
+  color: white;
+}
+
 .btn {
   transition: box-shadow 0.3s ease !important;
 }
@@ -105,4 +109,18 @@ body {
 #error-message {
   color: #af4d5c;
   display: none;
+}
+
+.bottom-btns {
+  margin-top: 30px;
+}
+
+.completed-task {
+  color: #539953;
+}
+
+.btn-change-task {
+  background-color: #c99b3d;
+  color: white;
+  height: 33px;
 }

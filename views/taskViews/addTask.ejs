@@ -14,28 +14,17 @@
       		<div class="col-md-8">
         		<div class="card custom-row-height main-box">
           			<div class="card-body d-flex flex-column justify-content-center">
-            			<div class="row d-flex justify-content-center my-4">	
-							<h3 class="col-4 text-lg-center">Sign Up</h3>
+            			<div class="row d-flex justify-content-center my-5">	
+							<h3 class="col-4 text-lg-center">To Do App</h3>
 						</div>
 						<div class="row d-flex justify-content-center flex-grow-1 overflow-auto scrollbar" style="max-height: 400px;">
-							<form id="registrationForm" class="col-6">
-								<div class="mb-3">
-									<label for="login" class="form-label">Login: </label>
-									<input type="text" class="form-control" name="login" required>
-									<p id="error-message"></p>
-								</div>
-								<div class="mb-3">
-									<label for="password" class="form-label">Password: </label>
-									<input type="password" class="form-control text-white" name="password" id="password" aria-describedby="passwordHelp" required>
-									<div id="passwordHelp" class="form-text text-white">Password must have length 6 symbols, 1 capital letter, 1 symbol and 1 number</div>
-								</div>
-								<div class="mb-3">
-									<label for="repeated-password" class="form-label">Repeat Password: </label>
-									<input type="password" class="form-control text-white" name="repeated-password" id="repeated-password" required>
+							<form class="col-6" method="post" action="/tasks/addTask">
+								<div class="mb-5">
+									<label for="title" class="form-label">Task Title: </label>
+									<input type="text" class="form-control" name="title" required>
 								</div>
 								<div class="col-12 d-flex justify-content-evenly">
-									<button type="submit" class="btn btn-enter">Sign Up</button>
-									<a class="btn btn-enter" href="/users/login">Sign In</a>
+									<button type="submit" class="btn btn-enter">Add Task</button>
 								</div>
 							</form>
 						</div>
@@ -45,7 +34,6 @@
     	</div>
   	</div>
 
-	<script src="/script.js"></script>
   	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

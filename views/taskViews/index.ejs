@@ -6,7 +6,7 @@
   	<title>Main Page</title>
   	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   	<link rel="stylesheet" type="text/css" href="/style.css">
-	<link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css" type="text/css">
+	<link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css" type="text/css">
 
 </head>
 <body class="d-flex align-items-center justify-content-center vh-100">
@@ -21,9 +21,9 @@
 						<form method="post" action="/add-task" enctype="application/x-www-form-urlencoded" class="row d-flex justify-content-center add-form">
 							<input type="text" name="task" placeholder="Enter a task here" class="form-control input-field" required/>
 							<input type="hidden" name="status" value="In Progress">
-							<button type="submit" class="col-1 btn btn-save d-flex align-items-center justify-content-center">Add</button>
+							<button type="submit" class="col-1 btn btn-save d-flex align-items-center justify-content-center">Search</button>
 						</form>
-						<div class="row d-flex justify-content-center flex-grow-1 overflow-auto scrollbar" style="max-height: 400px;">
+						<div class="row d-flex justify-content-center flex-grow-1 overflow-auto scrollbar" style="max-height: 300px;">
 							<div class="col-12">
 								<div class="table-responsive">
 									<table class="table todo-table">
@@ -38,18 +38,39 @@
 											<% if (tasks && tasks.length > 0) { %>
 												<% tasks.forEach(function(item) { %>
 													<tr>
-														<td class="col-md-4"><%= item.task %></td>
-														<td class="col-md-4"><%= item.status %></td>
-														<td class="col-md-4">
-															<div class="buttons d-flex">
-																<a class="btn btn-delete d-flex align-items-center justify-content-center">
-																	<i class="bi bi-trash3-fill"></i>
-																</a>
-																<a class="btn btn-change ms-2 d-flex align-items-center justify-content-center">
-																	<i class="bi bi-check-lg"></i>
-																</a>
-															</div>
-														</td>
+														<td class="col-md-4 align-middle"><%= item.title %></td>
+														<% if(item.isComplete){ %>
+															<td class="col-md-4 align-middle completed-task">
+																Done
+															</td>
+															<td class="col-md-4">
+																<div class="buttons d-flex">
+																	<a href="/tasks/deleteTask/<%= item._id %>" class="btn btn-delete d-flex align-items-center justify-content-center">
+																		<i class="bi bi-trash3-fill"></i>
+																	</a>
+																	<a href="/tasks/editTask/<%= item._id %>" class="btn btn-change-task d-flex align-items-center justify-content-center ms-2">
+																		<i class="bi bi-pencil-square"></i>
+																	</a>
+																</div>
+															</td>			
+														<% } else { %>
+															<td class="col-md-4 align-middle">
+																In Progress
+															</td>
+															<td class="col-md-4">
+																<div class="buttons d-flex">
+																	<a href="/tasks/deleteTask/<%= item._id %>" class="btn btn-delete d-flex align-items-center justify-content-center">
+																		<i class="bi bi-trash3-fill"></i>
+																	</a>
+																	<a href="/tasks/editTask/<%= item._id %>" class="btn btn-change-task d-flex align-items-center justify-content-center ms-2">
+																		<i class="bi bi-pencil-square"></i>
+																	</a>
+																	<a href="/tasks/changeStatus/<%= item._id %>" class="btn btn-change ms-2 d-flex align-items-center justify-content-center">
+																		<i class="bi bi-check-lg"></i>
+																	</a>
+																</div>
+															</td>
+														<% } %>													
 													</tr>
 												<% }); %>
 											<% } else { %>
@@ -60,6 +81,14 @@
 										</tbody>
 									</table>
 								</div>
+							</div>
+						</div>
+						<div class="row d-flex justify-content-center align-items-center bottom-btns">
+							<div class="col-3 d-flex justify-content-center">
+								<a class="btn btn-default" href="/tasks/addTask">Add Task</a>
+							</div>
+							<div class="col-3 d-flex justify-content-center">
+								<a class="btn btn-danger" href="/users/logout">Logout</a>
 							</div>
 						</div>
           			</div>
